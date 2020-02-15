@@ -1,0 +1,7 @@
+---
+- name: "Install python-apt package"
+  command: apt install python-apt
+- name: Update & upgrade system
+  apt:
+    update_cache: yes
+    upgrade: dist

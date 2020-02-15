@@ -1,0 +1,21 @@
+---
+- name: "create neo4j user with its configuration"
+  user:
+    name: neo4j
+    group: neo4j
+    shell: /bin/sh
+    comment: Neo4j User
+    create_home: yes
+    expires: -1
+- name: "add neo4j user nofile limit [hard]"
+  pam_limits:
+    domain: neo4j
+    limit_item: nofile
+    limit_type: hard
+    value: "50000"
+- name: "add neo4j user nofile limit [soft]"
+  pam_limits:
+    domain: neo4j
+    limit_item: nofile
+    limit_type: soft
+    value: "50000"
