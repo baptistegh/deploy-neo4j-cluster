@@ -1,7 +1,26 @@
 ---
-- name: "Install python-apt package"
-  command: apt install python-apt
-- name: Update & upgrade system
+- name: "[APT] Update & upgrade system & Install JRE"
   apt:
     update_cache: yes
     upgrade: dist
+  when: ( "{{ packages_gest }}" == "apt" )
+
+
+- name: "[YUM] Update & upgrade system & Install JRE"
+  yum:
+    update_cache: yes
+    upgrade: dist
+  when: ( "{{ packages_gest }}" == "yum" )
+
+- name: "[APT] Update & upgrade system & Install JRE"
+  apt:
+    pkg:
+      - openjdk-{{ java_jre_version }}-jre-headless
+  when: ( "{{ packages_gest }}" == "apt" )
+
+
+- name: "[YUM] Update & upgrade system & Install JRE"
+  yum:
+    name:
+      - openjdk-{{ java_jre_version }}-jre-headless
+  when: ("{{ packages_gest }}" == "yum" )
