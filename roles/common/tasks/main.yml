@@ -3,24 +3,24 @@
   apt:
     update_cache: yes
     upgrade: dist
-  when: ( "{{ packages_gest }}" == "apt" )
+  when: ( packages_gest|string == "apt" )
 
 
 - name: "[YUM] Update & upgrade system & Install JRE"
   yum:
     update_cache: yes
     upgrade: dist
-  when: ( "{{ packages_gest }}" == "yum" )
+  when: ( packages_gest|string == "yum" )
 
 - name: "[APT] Update & upgrade system & Install JRE"
   apt:
     pkg:
       - openjdk-{{ java_jre_version }}-jre-headless
-  when: ( "{{ packages_gest }}" == "apt" )
+  when: ( packages_gest|string == "apt" )
 
 
 - name: "[YUM] Update & upgrade system & Install JRE"
   yum:
     name:
       - openjdk-{{ java_jre_version }}-jre-headless
-  when: ("{{ packages_gest }}" == "yum" )
+  when: ( packages_gest|string == "yum" )

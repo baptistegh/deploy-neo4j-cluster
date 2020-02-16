@@ -1,8 +1,17 @@
 ---
 - name: "copy files and add permissions"
   unarchive:
-    src: "neo4j-binaries/neo4j-enterprise-{{ neo4j_version }}-unix.tar.gz"
-    dest: "/home/neo4j/"
+    src: "neo4j-binaries/{{ binaries_filename }}"
+    dest: "{{ installation_path }}"
     owner: neo4j
     group: neo4j
     mode: 0755
+  template:
+
+- name: "copy and formate conf file"
+  template:
+    src: "neo4j_conf.j2"
+    dest: "{{ neo4j_home }}/conf/neo4j.conf"
+    mode: 0644
+    owner: neo4j
+    group: neo4j

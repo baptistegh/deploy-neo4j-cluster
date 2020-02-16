@@ -1,6 +1,19 @@
 ---
-neo4j_version: "3.5.13" /!\ change it /!\
-username: "*****"
-password: "******"
-java_jre_version: 8 /!\ Java 8 if Neo4j <= v4.0.0 | Java 11 /!\
-packages_gest: [yum or apt]
+---
+neo4j_version: "3.5.13" #/!\ change it /!\
+
+username: "baptiste" # ssh username (must have sudo rights)
+
+packages_gest: "apt" #or yum
+
+java_jre_version: "11" #/!\ for neo4j <= 4.0.0 : java jre 8 /!\
+
+binaries_filename: "neo4j-enterprise-{{ neo4j_version }}-unix.tar.gz"
+
+installation_path: "/home/neo4j" #/!\ where do you wanna install the neo4j_home folder /!\
+
+neo4j_home: "{{ installation_path }}/neo4j-enterprise-{{ neo4j_version }}"
+
+neo4j_conf:
+  jvm_heapsize: "512m" #/!\ change it /!\
+  pagecache_size: "1G" #/!\ change it /!\

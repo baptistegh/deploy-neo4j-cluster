@@ -1,0 +1,3 @@
+---
+
+dns_address: "test.myservers.com" # this dns records must contains all the cores addresses => discovery address
