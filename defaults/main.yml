@@ -1,8 +1,0 @@
----
-- hosts: all
-  remote_user: "{{ username }}"
-  become: yes
-  become_method: sudo
-  tasks:
-    - import_role:
-        name: create_user
