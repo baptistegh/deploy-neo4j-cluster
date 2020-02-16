@@ -1,9 +1,9 @@
 ---
 - hosts: all
-  remote_user: "{{ username }}"
   become: yes
   become_method: sudo
   roles:
     - common
     - create_user
-    - copy_neo4j_binaries
+    - upload
+    - configure
