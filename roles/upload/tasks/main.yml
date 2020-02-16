@@ -6,11 +6,3 @@
     owner: neo4j
     group: neo4j
     mode: 0755
-
-- name: "copy and formate conf file"
-  template:
-    src: "neo4j_conf.j2"
-    dest: "{{ neo4j_home }}/conf/neo4j.conf"
-    mode: 0644
-    owner: neo4j
-    group: neo4j
