@@ -2,7 +2,7 @@
 ---
 neo4j_version: "3.5.13" #/!\ change it /!\
 
-username: "baptiste" # ssh username (must have sudo rights)
+username: "****" # ssh username (must have sudo rights)
 
 packages_gest: "apt" #or yum
 
