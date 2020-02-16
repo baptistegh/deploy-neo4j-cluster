@@ -22,7 +22,7 @@ You have 2 files of variables located in `group_vars` folder:
 * `cores.yml`
 * `read_replicas.yml`
 
-Please complete those files with our own values. All the variables are commented,
+Please complete those files with your own values. All the variables are commented,
 it explains how to fill them out.
 
 ### 3. Put the correct Neo4j file
