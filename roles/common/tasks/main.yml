@@ -1,4 +1,58 @@
 ---
+- name: "iptables add neo4j BOLT"
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "7687"
+    jump: ACCEPT
+    action: insert
+    comment: "Neo4j Bolt protocol port"
+
+- name: "iptables add neo4j HTTPS"
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "7473"
+    jump: ACCEPT
+    action: insert
+    comment: "Neo4j HTTPS"
+
+- name: "iptables add neo4j HTTP"
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "7474"
+    jump: ACCEPT
+    action: insert
+    comment: "Neo4j HTTP"
+
+- name: "iptables add neo4j cluster ports 5000"
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "5000"
+    jump: ACCEPT
+    action: insert
+    comment: "Neo4j discovery port"
+
+- name: "iptables add neo4j cluster ports 6000"
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "6000"
+    jump: ACCEPT
+    action: insert
+    comment: "Neo4j transaction port"
+
+- name: "iptables add neo4j cluster ports 7000"
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "7000"
+    jump: ACCEPT
+    action: insert
+    comment: "Neo4j raft protocol port"
+    
 - name: "[APT] Update & upgrade system & Install JRE"
   apt:
     update_cache: yes
