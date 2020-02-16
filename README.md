@@ -29,4 +29,4 @@ it explains how to fill them out.
 Download the .tar.gz archive of Neo4j enterprise edition. Note down the version.
 It should match with the version filled out in `all.yml`.
 
-Move the file in : `roles/copy_neo4j_binaries/neo4j-binaries/`
+Move the file in : `roles/upload/neo4j-binaries/`
